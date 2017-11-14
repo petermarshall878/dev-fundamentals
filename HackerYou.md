@@ -66,8 +66,8 @@ class Node {
 ```javascript
 class SinglyList {
   constructor() {
-    this._length = 0;
     this.head = null;
+    this._length = 0;
   }
   
   ...
@@ -76,7 +76,7 @@ class SinglyList {
 
 ## Now what do we need to do to remove a node / picture from position 4?
 ```javascript
-function remove(position) {
+remove(position) {
   let currentNode = this.head;
   let count = 0;
   let beforeNodeToDelete = null;
@@ -156,7 +156,7 @@ class Tree {
 ## What does a tree traversal look like?
 
 ```javascript
-function remove(position) {
+remove(position) {
   let currentNode = this.head;
   let count = 0;
   let beforeNodeToDelete = null;
