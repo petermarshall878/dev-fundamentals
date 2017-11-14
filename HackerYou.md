@@ -10,7 +10,9 @@ albumMaxSize[2] = '14';
 albumMaxSize[3] = '12';
 albumMaxSize[4] = '21';
 ```
-### Now what if I want to add a new picture to the array? No problem.
+
+Now what if I want to add a new picture to the array? No problem.
+
 ```javascript
 albumMaxSize[length] = '44';
 ```
@@ -21,7 +23,7 @@ albumMaxSize[length] = '44';
 var albumMinSize = ['23', '13', '14', '12', '21'];
 ```
 
-### But to add to it now, you must create a new array:
+But to add to it now, you must create a new array:
 ```javascript
 var newAlbum = new array(album.length + 1);
 for ( int i = 0; i < album.length; i++) {
@@ -29,6 +31,8 @@ for ( int i = 0; i < album.length; i++) {
 }
 newAlbum[++i] = '34';
 ```
+
+___
 
 ### Now what if I want to delete a photo from the album... say the picture at position 4
 ```javascript
@@ -39,7 +43,10 @@ for (int i = indexToDelete - 1 ; c < length - 1 ; i++ ) {
 }         
 ```
 
-### Similarly, to add a new picture, say at position 3, you need to copy all elements from position 3 onwards over one
+Similarly, to add a new picture, say at position 3, you need to copy all elements from position 3 onwards over one
+
+___
+
 
 ## What if we wanted to avoid all of this copying over?
 The reason elements in an array need to be side-by-side, is because we don't have any other property or field to tell us where the next element is. If we pair the data with an additional property called 'next'...
@@ -105,18 +112,21 @@ SinglyList.prototype.remove = function(position) {
 - Slow lookup: need to iterate through the list to find a specific node
 - They do use more memory than arrays because of the pointers
 
-### For our next data structure, similar to linked lists, we will deal with nodes and pointers again to next nodes...
 
+For our next data structure, similar to linked lists, we will deal with nodes and pointers again to next nodes...
+
+___
 
 ## Trees
 
 The example we will use to discuss trees is the DOM. What is the DOM?
 
+It’s an interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document.
+It's a great example because you have lots of one-to-many relationships.
 
-
-
+### Let's define our Node and Tree
 ```javascript
-function TreeNode(data) {
+function Node(data) {
     this.data = data;
     this.parent = null;
     this.children = [];
@@ -130,7 +140,7 @@ function Tree(data) {
 }
 ```
 
-### Some useful functions to help out...
+### Some useful helper functions to help out...
 
 ```javascript
 TreeNode.prototype.isLeaf = function () {
@@ -142,7 +152,8 @@ TreeNode.prototype.isRoot = function () {
 };
 ```
 
-## What does tree traversal look like?
+
+## What does a tree traversal look like?
 
 ```javascript
 Tree.prototype.traverse = function (callback) {
@@ -158,17 +169,5 @@ Tree.prototype.traverse = function (callback) {
 };
 ```
 
+You're callback can be anything here... a function to return all image type children, a counter function to find the number of images, a function that manipulates certain nodes, etc...
 
-```javascript
-```
-```javascript
-```
-```javascript
-```
-```javascript
-```
-```javascript
-```
-```javascript
-```
-    
