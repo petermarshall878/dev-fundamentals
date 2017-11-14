@@ -156,31 +156,17 @@ class Tree {
 ## What does a tree traversal look like?
 
 ```javascript
-remove(position) {
-  let currentNode = this.head;
-  let count = 0;
-  let beforeNodeToDelete = null;
-  let nodeToDelete = null;
+Tree.prototype.traverse = function (callback) {
+   callback(this.value);
  
-  // the first node is removed
-  if (position === 1) {
-    this.head = currentNode.next;
-    currentNode = null;
-    this._length--;
-    return;
-  }
- 
-  // any other node is removed
-  while (count < position) {
-    beforeNodeToDelete = currentNode;
-    nodeToDelete = currentNode.next;
-    count++;
-  }
-
-  beforeNodeToDelete.next = nodeToDelete.next;
-  nodeToDelete = null;
-  this._length--;
-}
+   if (!this.children) {
+     return;
+   }
+   for (var i = 0; i < this.children.length; i++) {
+     var child = this.children[i];
+     child.traverse(callback);
+   }
+ }
 ```
 
 Your callback can be anything here... a function to return all image type children, a counter function to find the number of images, a function that manipulates certain nodes, etc...
