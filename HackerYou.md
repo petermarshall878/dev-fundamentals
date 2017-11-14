@@ -112,6 +112,8 @@ SinglyList.prototype.remove = function(position) {
 - Slow lookup: need to iterate through the list to find a specific node
 - They do use more memory than arrays because of the pointers
 
+We can also add a 'previous' field to allow traversal in both directions, and a 'tail' property to our Linked List implementation to keep track of the last element of the list if needed.
+
 
 For our next data structure, similar to linked lists, we will deal with nodes and pointers again to next nodes...
 
