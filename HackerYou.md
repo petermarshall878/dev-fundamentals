@@ -184,5 +184,8 @@ element = document.getElementById(id);
 ```
 
 ## Why use a tree?
+
+Let's go back to our original picture album problem and add items dynamically to the tree...
+
 + both insertions (and retrievals) of objects take on the average log2N time, where N is the number of objects stored.
 + the tree naturally grows to hold an arbitrary, unlimited number of objects.
