@@ -162,11 +162,15 @@ TreeNode.prototype.isRoot = function () {
 
 ```javascript
 Tree.prototype.traverse = function (callback) {
+  // this will get performed AFTER processing the children
   callback(this.value);
 
+  // return when there are no more children
   if (!this.children) {
     return;
   }
+  
+  // repeat for all children
   for (var i = 0; i < this.children.length; i++) {
     var child = this.children[i];
     child.traverse(callback);
@@ -177,11 +181,12 @@ Tree.prototype.traverse = function (callback) {
 Your callback can be anything here... a function to return all image type children, a counter function to find the number of images, a function that manipulates certain nodes, etc...
 
 
-An interesting thing about the DOM, your browser knows how important it is for you to quickly access, read, change your DOM tree, so on top of being to traverse the tree like a tree, it also provides hash tables (dictionaries), to quickly look up specific elements (or nodes) of your tree by index. Hence, why you can use calls like:
+Because it is so important to quickly access, read, change your DOM tree, on top of being able to traverse the tree, you are also provided with hash tables (dictionaries) of elements by id, to quickly look up specific elements (or nodes) of your tree by index. Hence, why you can use calls like:
 
 ```javascript
 element = document.getElementById(id);
 ```
+So when needed, you can also look at combining data structures.
 
 ## Why use a tree?
 
