@@ -95,6 +95,16 @@ SinglyList.prototype.remove = function(position) {
 };
 ```
 
++ Fast insertion / deletion
++ Linked lists let you insert elements at the beginning and end of the list in O(1) time. 
++ Linked lists also remove the overhead of bothering about the size of the data structure. The size need not to be known in advance.
+- Slow lookup: Drawback: O(n) complexity in finding a specific node
+- They do use more memory than arrays because of the pointers
+- They are read in order
+
+
+Trees
+
 
 
 ```javascript
@@ -106,6 +116,10 @@ function Node(data) {
 ```
 
 ```javascript
+function Tree(data) {
+    var node = new Node(data);
+    this._root = node;
+}
 ```
 ```javascript
 ```
