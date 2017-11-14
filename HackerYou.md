@@ -169,5 +169,11 @@ Tree.prototype.traverse = function (callback) {
 };
 ```
 
-You're callback can be anything here... a function to return all image type children, a counter function to find the number of images, a function that manipulates certain nodes, etc...
+Your callback can be anything here... a function to return all image type children, a counter function to find the number of images, a function that manipulates certain nodes, etc...
 
+
+An interesting thing about the DOM, your browser knows how important it is for you to quickly access, read, change your DOM tree, so on top of being to traverse the tree like a tree, it also provides hash tables (dictionaries), to quickly look up specific elements (or nodes) of your tree by index. Hence, why you can use calls like:
+
+```javascript
+element = document.getElementById(id);
+```
