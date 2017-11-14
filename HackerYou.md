@@ -126,6 +126,9 @@ The example we will use to discuss trees is the DOM. What is the DOM?
 It’s an interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document.
 It's a great example because you have lots of one-to-many relationships.
 
+![simple DOM example](https://snipcademy.com/code/img/tutorials/javascript/dom.svg "Simple DOM")
+
+
 ### Let's define our Node and Tree
 ```javascript
 function Node(data) {
@@ -179,3 +182,7 @@ An interesting thing about the DOM, your browser knows how important it is for y
 ```javascript
 element = document.getElementById(id);
 ```
+
+## Why use a tree?
++ both insertions (and retrievals) of objects take on the average log2N time, where N is the number of objects stored.
++ the tree naturally grows to hold an arbitrary, unlimited number of objects.
