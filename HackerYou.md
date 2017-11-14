@@ -54,32 +54,34 @@ The reason elements in an array need to be side-by-side, is because we don't hav
 ### Let's define our node
 
 ```javascript
-function Node(data) {
-    this.data = data;
+class Node {
+  constructor(value = null) {
+    this.value = value;
     this.next = null;
+  }
 }
 ```
 ### And our linked list
 
 ```javascript
-function SinglyList() {
+class SinglyList {
+  constructor() {
     this._length = 0;
     this.head = null;
+  }
+  
+  ...
 }
 ```
 
 ## Now what do we need to do to remove a node / picture from position 4?
 ```javascript
-SinglyList.prototype.remove = function(position) {
-  var currentNode = this.head,
-    length = this._length,
-    count = 0,
-    beforeNodeToDelete = null,
-    nodeToDelete = null,
-    
-  // edge case handling... if position is invalid, etc
-  ...
- 
+function remove(position) {
+  let currentNode = this.head;
+  let count = 0;
+  let beforeNodeToDelete = null;
+  let nodeToDelete = null;
+
   // the first node is removed
   if (position === 1) {
     this.head = currentNode.next;
@@ -87,20 +89,18 @@ SinglyList.prototype.remove = function(position) {
     this._length--;
     return;
   }
- 
+
   // any other node is removed
   while (count < position) {
     beforeNodeToDelete = currentNode;
     nodeToDelete = currentNode.next;
     count++;
   }
- 
+
   beforeNodeToDelete.next = nodeToDelete.next;
   nodeToDelete = null;
   this._length--;
- 
-  return;
-};
+}
 ```
 
 ## Positives of linked lists:
@@ -131,51 +131,56 @@ It's a great example because you have lots of one-to-many relationships.
 
 ### Let's define our Node and Tree
 ```javascript
-function Node(data) {
-    this.data = data;
+class Node {
+  constructor(value = null) {
+    this.value = value;
     this.parent = null;
     this.children = [];
+  }
+
+  ...
 }
 ```
 
 ```javascript
-function Tree(data) {
-    var node = new Node(data);
-    this._root = node;
+class Tree {
+  constructor(node = null) {
+    this.root = node;
+    this._length = 0;
+  }
+  
+  ...
 }
 ```
-
-### Some useful helper functions to help out...
-
-```javascript
-TreeNode.prototype.isLeaf = function () {
-    return this.children.length == 0;
-};
- 
-TreeNode.prototype.isRoot = function () {
-    return this.parent == null;
-};
-```
-
 
 ## What does a tree traversal look like?
 
 ```javascript
-Tree.prototype.traverse = function (callback) {
-  // this will get performed AFTER processing the children
-  callback(this.value);
-
-  // return when there are no more children
-  if (!this.children) {
+function remove(position) {
+  let currentNode = this.head;
+  let count = 0;
+  let beforeNodeToDelete = null;
+  let nodeToDelete = null;
+ 
+  // the first node is removed
+  if (position === 1) {
+    this.head = currentNode.next;
+    currentNode = null;
+    this._length--;
     return;
   }
-  
-  // repeat for all children
-  for (var i = 0; i < this.children.length; i++) {
-    var child = this.children[i];
-    child.traverse(callback);
+ 
+  // any other node is removed
+  while (count < position) {
+    beforeNodeToDelete = currentNode;
+    nodeToDelete = currentNode.next;
+    count++;
   }
-};
+
+  beforeNodeToDelete.next = nodeToDelete.next;
+  nodeToDelete = null;
+  this._length--;
+}
 ```
 
 Your callback can be anything here... a function to return all image type children, a counter function to find the number of images, a function that manipulates certain nodes, etc...
