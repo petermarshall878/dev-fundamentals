@@ -58,7 +58,7 @@ for (index = indexToDelete; index < myAlbum.length ; index++ ) {
 }         
 ```
 
-Similarly, to add a new picture, say after picture 12, you need to copy all elements from picture 12 onwards over one. So much copying, sigh...
+Similarly, to add a new picture, say after picture 12, you need to copy all elements from picture 12 onwards over one. So much copying, sigh... what if we had to copy much larger elements... yikes!
 
 This is because the data of an array resides contiguously in memory (side-by-side).
 ___
