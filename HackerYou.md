@@ -54,20 +54,21 @@ The reason elements in an array need to be side-by-side, is because we don't hav
 ### Let's define our node
 
 ```javascript
-class Node {
-  constructor(value = null) {
-    this.value = value;
-    this.next = null;
-  }
-}
+var Node = function Node(value) {
+  this.data = value;
+  this.next = null;
+};
 ```
 ### And our linked list
 
 ```javascript
 var SinglyList = function SinglyList() {
   var _this = this;
+  
   this.head = null;
   this.length = 0;
+  
+  ...
 }
 ```
 
