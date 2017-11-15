@@ -185,14 +185,16 @@ Your callback can be anything here... a function to return all image type childr
 
 ## Why use a tree?
 
-Let's go back to our picture album idea, and consider adding pictures in order, as we select additional pictures to add... 
+Let's go back to our picture album idea, and consider adding pictures in order, as we select additional pictures to add.
+
 Like in the original array and linked list... let's say we still want the pictures in this order:  3, 8, 1, 12 5.
-Realistically, they may not be chosen in that order too though. Add them to the try, sorted, as you select them in this order: 1, 3, 8, 12, 5. 
+Realistically, they may not be chosen in that order too though. Let's add them to the tree, sorted, as you select them in this order: 1, 3, 8, 12, 5. 
 what does our tree look like?
 
-If we did that with an array, we'd have to shift pictures over to make room for the new picture everytime we added anywhere but the last position of the array. Lots of copying.
-With a linked list, we wouldn't have to copy, but we still iterate through the list linearly, find the spot, ajust a few next pointers. 
-With a tree, no copying or shifting either, but as we iterate, we are looking through a smaller and smaller subset... it might help to visualize with an album of 100 pictures.
+Now what if we selected them in this order with the array or linked list??
++ If we did that with an array, we'd have to shift pictures over to make room for the new picture everytime we added anywhere but the last position of the array. Lots of copying.
++ With a linked list, we wouldn't have to copy, but we still iterate through the list linearly, find the spot, ajust a few next pointers. 
++ With a tree, no copying or shifting either, but as we iterate, we are looking through a smaller and smaller subset... it might help to visualize with an album of 100 pictures.
 
 We will take a closer look into sorting and efficiency next time.
 
