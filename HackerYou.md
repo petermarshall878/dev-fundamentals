@@ -155,7 +155,7 @@ class Tree {
 
 ```javascript
   traverse(callback) {
-    callback(this);
+    callback(this.root);
 
     if (this.children.length < 1) {
       return;
@@ -169,7 +169,7 @@ class Tree {
 
 A simple example to traverse the entire tree and print to screen all values:
 ```javascript
-myTree.traverse((rootNode) => console.log(rootNode.data));
+myTree.traverse((node) => console.log(node.data));
 ```
 
 Your callback can be anything here... a function to return all image type children, a counter function to find the number of images, a function that manipulates certain nodes, etc...
