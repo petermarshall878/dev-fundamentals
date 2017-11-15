@@ -57,10 +57,11 @@ for (index = indexToDelete; index < myAlbum.length ; index++ ) {
 
 Similarly, to add a new picture, say after picture 12, you need to copy all elements from picture 12 onwards over one
 
+This is because the data of an array resides contiguously in memory (side-by-side).
 ___
 
 
-## What if we wanted to avoid all of this copying over?
+## What if we wanted to avoid all of this copying over? ...and avoid this memory restriction?
 The reason elements in an array need to be side-by-side, is because we don't have any other property or field to tell us where the next element is. If we pair the data with an additional property called 'next'...
 
 ### Let's define our node
