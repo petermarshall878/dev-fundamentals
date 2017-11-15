@@ -209,13 +209,13 @@ Realistically, they may not be chosen in that order too though. Let's add them t
 what does our tree look like?
 
 Now what if we selected them in this order with the array or linked list??
-+ If we did that with an array, we'd have to shift pictures over to make room for the new picture everytime we added anywhere but the last position of the array. Lots of copying.
++ If we did that with an array, we'd have to shift pictures over to make room for the new picture EVERYTIME we added anywhere but the last position of the array. Lots of copying. NO THANKS!
 + With a linked list, we wouldn't have to copy, but we still iterate through the list linearly, find the spot, ajust a few next pointers. 
 + With a tree, no copying or shifting either, but as we iterate, we are looking through a smaller and smaller subset... it might help to visualize with an album of 100 pictures.
 
 We will take a closer look into sorting and efficiency next time.
 
-+ both insertions (and retrievals) of objects take on the average log2N time, where N is the number of objects stored.
++ both insertions (and retrievals) of objects take on the average log2N time, where N is the number of objects stored...
 + the tree naturally grows to hold an arbitrary, unlimited number of objects.
 
 
