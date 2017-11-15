@@ -44,15 +44,18 @@ ___
 ```javascript
 let myAlbum = [3, 8, 1, 12, 5];
 let pictureToDelete = 12;
-// first find the picture to delete
 let index;
 let indexToDelete;
+
+// first find the picture to delete
 for (index = 0 ; index < myAlbum.length ; index++ ) {
   if(myAlbum[index] === pictureToDelete) {
     indexToDelete = index;
     break;
   }
-}         
+}
+
+// now we can overwrite it, shifting all elements over by one
 for (index = indexToDelete; index < myAlbum.length ; index++ ) {
   myAlbum[index] = myAlbum[index+1];
 }         
