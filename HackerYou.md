@@ -27,7 +27,7 @@ let smallAlbum = [3, 8, 1, 12, 5];
 
 But to add to it now, you must create a new array:
 ```javascript
-let newAlbum = new array(album.length + 1);
+let newAlbum = new array(smallAlbum.length + 1);
 let index;
 for ( index = 0; i < smallAlbum.length; index++) {
   newAlbum[index] = smallAlbum[index];
