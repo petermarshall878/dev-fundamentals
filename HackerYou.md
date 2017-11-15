@@ -45,7 +45,7 @@ let pictureToDelete = 12;
 let index;
 let indexToDelete;
 for (index = 0 ; index < myAlbum.length ; index++ ) {
-  if(myAlbum[index] == pictureToDelete) {
+  if(myAlbum[index] === pictureToDelete) {
     indexToDelete = index;
     break;
   }
@@ -87,32 +87,33 @@ class LinkedList {
 }
 ```
 
-## Now what do we need to do to remove a node / picture from position 4?
+## Now what do we need to do to remove picture 12?
 ```javascript
-  remove(position) {
+  remove(valueToDelete) {
     let currentNode = this.head;
-    let count = 0;
+    let index = 0;
     let beforeNodeToDelete = null;
     let nodeToDelete = null;
 
     // the first node is removed
-    if (position === 1) {
+    if (currentNode.data === valueToDelete) {
       this.head = currentNode.next;
       currentNode = null;
       this.length--;
       return;
     }
 
+    beforeNodeToDelete = currentNode;
     // any other node is removed
-    while (count < position) {
-      beforeNodeToDelete = currentNode;
-      nodeToDelete = currentNode.next;
-      count++;
+    while (index <= this.length) {
+      if(currentNode.data === valueToDelete) {
+        beforeNodeToDelete.next = currentNode.next;
+        currentNode = null;
+        this.length--;
+        break;
+      }
+      index++;
     }
-
-    beforeNodeToDelete.next = nodeToDelete.next;
-    nodeToDelete = null;
-    this.length--;
   }
 ```
 
