@@ -128,17 +128,17 @@ Here's the code, but let me draw it out...
 Inserting happens in a similar fashion too.
 
 ## Positives of linked lists:
-+ Fast insertion / deletion
-+ Linked lists let you insert elements at the beginning and end of the list is trivial. 
-+ If you keep a 'tail' property for the last node, like you 'head' property for the first node, inserting at the end of the list is very trivial.
-+ Linked lists also remove the overhead of bothering about the size of the data structure. The size need not to be known in advance.
++ Fast insertion / deletion **(no copying of other elements!)**
++ Linked lists let you insert elements at the **beginning of the list** fast ...aka O(1)  ...i.e. same time regardless of size
++ If you keep a **'tail' property** for the last node, like you 'head' property for the first node, inserting at the end of the list is also fast ...O(1).
++ Linked lists also remove the overhead of bothering about the size of the data structure. **The size need not to be known in advance.**
 
 ## Drawbacks:
 - Slow lookup: need to iterate through the list to find a specific node
 - They do use more memory than arrays because of the pointers
 
 ### Note
-We can also add a 'previous' field to allow traversal in both directions.
+We can also add a **'previous' property** to allow traversal in both directions.
 
 For our next data structure, similar to linked lists, we will deal with nodes and pointers again to next nodes...
 
@@ -170,7 +170,11 @@ class Tree {
 }
 ```
 
+Of all of the wonderful things we want to do with a tree, we first would need a way to traverse it (visit every node). 
+
 ## What does a tree traversal look like?
+
+Here's an example with recursion and callbacks...
 
 ```javascript
   traverse(callback) {
@@ -192,6 +196,8 @@ myTree.traverse((node) => console.log(node.data));
 ```
 
 Your callback can be anything here... a function to return all image type children, a counter function to find the number of images, a function that manipulates certain nodes, etc...
+
+What is actually happening in the background, the callback commands are stored in a stack to *remember* what to do *later*... 
 
 
 ## Why use a tree?
