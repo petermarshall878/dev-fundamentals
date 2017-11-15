@@ -70,7 +70,7 @@ class Node {
 class SinglyList {
   constructor(value) {
     this.head = new Node(value);
-    this.length = 0;
+    this.length = 1;
   }
   
   // functions to edit / manage your linked list
@@ -148,7 +148,6 @@ class Node {
 class Tree {
   constructor(value) {
     this.root = new Node(value);
-    this.length = 1;
   }
   
   // functions to edit / manage the tree
