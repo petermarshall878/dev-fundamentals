@@ -39,16 +39,18 @@ ___
 
 ### Now what if I want to delete a photo from the album... say the picture 12
 ```javascript
+let myAlbum = [3, 8, 1, 12, 5];
 let pictureToDelete = 12;
 // first find the picture to delete
 let index;
 let indexToDelete;
 for (index = 0 ; index < myAlbum.length ; index++ ) {
-  if(myAlbum[index] == pictureToDelete)
+  if(myAlbum[index] == pictureToDelete) {
     indexToDelete = index;
     break;
+  }
 }         
-for (index = indexToDelete - 1 ; index < myAlbum.length ; index++ ) {
+for (index = indexToDelete; index < myAlbum.length ; index++ ) {
   myAlbum[index] = myAlbum[index+1];
 }         
 ```
