@@ -64,43 +64,40 @@ class Node {
 ### And our linked list
 
 ```javascript
-class SinglyList {
-  constructor() {
-    this.head = null;
-    this._length = 0;
-  }
-  
-  ...
+var SinglyList = function SinglyList() {
+  var _this = this;
+  this.head = null;
+  this.length = 0;
 }
 ```
 
 ## Now what do we need to do to remove a node / picture from position 4?
 ```javascript
-remove(position) {
-  let currentNode = this.head;
-  let count = 0;
-  let beforeNodeToDelete = null;
-  let nodeToDelete = null;
+  this.remove = function (position) {
+    let currentNode = this.head;
+    let count = 0;
+    let beforeNodeToDelete = null;
+    let nodeToDelete = null;
 
-  // the first node is removed
-  if (position === 1) {
-    this.head = currentNode.next;
-    currentNode = null;
+    // the first node is removed
+    if (position === 1) {
+      this.head = currentNode.next;
+      currentNode = null;
+      this._length--;
+      return;
+    }
+
+    // any other node is removed
+    while (count < position) {
+      beforeNodeToDelete = currentNode;
+      nodeToDelete = currentNode.next;
+      count++;
+    }
+
+    beforeNodeToDelete.next = nodeToDelete.next;
+    nodeToDelete = null;
     this._length--;
-    return;
   }
-
-  // any other node is removed
-  while (count < position) {
-    beforeNodeToDelete = currentNode;
-    nodeToDelete = currentNode.next;
-    count++;
-  }
-
-  beforeNodeToDelete.next = nodeToDelete.next;
-  nodeToDelete = null;
-  this._length--;
-}
 ```
 
 ## Positives of linked lists:
@@ -131,42 +128,37 @@ It's a great example because you have lots of one-to-many relationships.
 
 ### Let's define our Node and Tree
 ```javascript
-class Node {
-  constructor(value = null) {
-    this.value = value;
-    this.parent = null;
-    this.children = [];
-  }
-
-  ...
-}
+var Node = function Node(value) {
+  this.data = value;
+  this.parent = null;
+  this.children = [];
+};
 ```
 
 ```javascript
-class Tree {
-  constructor(node = null) {
-    this.root = node;
-    this._length = 0;
-  }
-  
-  ...
-}
+var Tree = function Tree(value) {
+  var _this = this;
+
+  this.root = new Node(value);
+  this.length = 0;
+};
 ```
 
 ## What does a tree traversal look like?
 
 ```javascript
-Tree.prototype.traverse = function (callback) {
-   callback(this.value);
- 
-   if (!this.children) {
-     return;
-   }
-   for (var i = 0; i < this.children.length; i++) {
-     var child = this.children[i];
-     child.traverse(callback);
-   }
- }
+  this.traverse = function (callback) {
+    callback(_this);
+
+    if (!_this.children) {
+      return;
+    }
+    for (var i = 0; i < _this.children.length; i++) {
+      var child = _this.children[i];
+      child.traverse(callback);
+    }
+  };
+};
 ```
 
 Your callback can be anything here... a function to return all image type children, a counter function to find the number of images, a function that manipulates certain nodes, etc...
