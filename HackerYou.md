@@ -1,45 +1,48 @@
 ## Two ways of creating your array and adding to your array
 
+We are discussing here the data structure, array. Not the JavaScript Array.
+
 ### 1) I initialize the size of the array with some room to grow
 
 ```javascript
-var albumMaxSize = new array(10); 
-albumMaxSize[0] = '23';
-albumMaxSize[1] = '13';
-albumMaxSize[2] = '14';
-albumMaxSize[3] = '12';
-albumMaxSize[4] = '21';
+let largeAlbum = new array(50); 
+largeAlbum[0] = 3;
+largeAlbum[1] = 8;
+largeAlbum[2] = 1;
+largeAlbum[3] = 12;
+largeAlbum[4] = 5;
 ```
 
 Now what if I want to add a new picture to the array? No problem.
 
 ```javascript
-albumMaxSize[length] = '44';
+largeAlbum[largeAlbum.length] = 7;
 ```
 
 ### 2) Don't make it any bigger than you need right now
 
 ```javascript
-var albumMinSize = ['23', '13', '14', '12', '21'];
+let smallAlbum = [3, 8, 1, 12, 5];
 ```
 
 But to add to it now, you must create a new array:
 ```javascript
-var newAlbum = new array(album.length + 1);
-for ( int i = 0; i < album.length; i++) {
-  newAlbum[i] = album[i];
+let newAlbum = new array(album.length + 1);
+let index;
+for ( index = 0; i < smallAlbum.length; index++) {
+  newAlbum[index] = smallAlbum[index];
 }
-newAlbum[++i] = '34';
+newAlbum[index+1] = 7;
 ```
 
 ___
 
-### Now what if I want to delete a photo from the album... say the picture at position 4
+### Now what if I want to delete a photo from the album... say the picture at position 3
 ```javascript
-var indexToDelete = 4;
-var newAlbum[10];
-for (int i = indexToDelete - 1 ; c < length - 1 ; i++ ) {
-  array[i] = array[i+1];
+let indexToDelete = 3;
+let index;
+for (index = indexToDelete - 1 ; index < myAlbum.length ; index++ ) {
+  myAlbum[index] = myAlbum[index+1];
 }         
 ```
 
@@ -70,6 +73,7 @@ class SinglyList {
     this.length = 0;
   }
   
+  // functions to edit / manage your linked list
   ...
 }
 ```
@@ -147,6 +151,7 @@ class Tree {
     this.length = 1;
   }
   
+  // functions to edit / manage the tree
   ...
 }
 ```
