@@ -62,10 +62,10 @@ var Node = function Node(value) {
 ### And our linked list
 
 ```javascript
-var SinglyList = function SinglyList() {
+var SinglyList = function SinglyList(value) {
   var _this = this;
   
-  this.head = null;
+  this.head = new Node(value);
   this.length = 0;
   
   ...
