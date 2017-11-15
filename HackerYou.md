@@ -90,7 +90,7 @@ class SinglyList {
     if (position === 1) {
       this.head = currentNode.next;
       currentNode = null;
-      this._length--;
+      this.length--;
       return;
     }
 
@@ -103,7 +103,7 @@ class SinglyList {
 
     beforeNodeToDelete.next = nodeToDelete.next;
     nodeToDelete = null;
-    this._length--;
+    this.length--;
   }
 ```
 
