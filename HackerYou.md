@@ -162,7 +162,7 @@ class Tree {
   traverse(callback) {
     callback(this.root);
 
-    if (this.children.length < 1) {
+    if (this.children && this.children.length < 1) {
       return;
     }
     children.forEach(() => {
