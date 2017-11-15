@@ -55,7 +55,7 @@ for (index = indexToDelete; index < myAlbum.length ; index++ ) {
 }         
 ```
 
-Similarly, to add a new picture, say at position 3, you need to copy all elements from position 3 onwards over one
+Similarly, to add a new picture, say after picture 12, you need to copy all elements from picture 12 onwards over one
 
 ___
 
