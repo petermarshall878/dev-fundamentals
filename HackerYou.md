@@ -37,10 +37,17 @@ newAlbum[index+1] = 7;
 
 ___
 
-### Now what if I want to delete a photo from the album... say the picture at position 3
+### Now what if I want to delete a photo from the album... say the picture 12
 ```javascript
-let indexToDelete = 3;
+let pictureToDelete = 12;
+// first find the picture to delete
 let index;
+let indexToDelete;
+for (index = 0 ; index < myAlbum.length ; index++ ) {
+  if(myAlbum[index] == pictureToDelete)
+    indexToDelete = index;
+    break;
+}         
 for (index = indexToDelete - 1 ; index < myAlbum.length ; index++ ) {
   myAlbum[index] = myAlbum[index+1];
 }         
@@ -118,7 +125,6 @@ class SinglyList {
 
 We can also add a 'previous' field to allow traversal in both directions, and a 'tail' property to our Linked List implementation to keep track of the last element of the list if needed.
 
-
 For our next data structure, similar to linked lists, we will deal with nodes and pointers again to next nodes...
 
 ___
@@ -193,7 +199,16 @@ So when needed, you can also look at combining data structures.
 
 ## Why use a tree?
 
-Let's go back to our original picture album problem and add items dynamically to the tree...
+Let's go back to our picture album idea, and consider adding pictures in order, as we select additional pictures to add... 
+Like in the original array and linked list... let's say we still want the pictures in this order:  3, 8, 1, 12 5.
+Realistically, they may not be chosen in that order too though. Add them to the try, sorted, as you select them in this order: 1, 3, 8, 12, 5. 
+what does our tree look like?
+
+If we did that with an array, we'd have to shift pictures over to make room for the new picture everytime we added anywhere but the last position of the array. Lots of copying.
+With a linked list, we wouldn't have to copy, but we still iterate through the list linearly, find the spot, ajust a few next pointers. 
+With a tree, no copying or shifting either, but as we iterate, we are looking through a smaller and smaller subset... it might help to visualize with an album of 100 pictures.
+
+We will take a closer look into sorting and efficiency next time.
 
 + both insertions (and retrievals) of objects take on the average log2N time, where N is the number of objects stored.
 + the tree naturally grows to hold an arbitrary, unlimited number of objects.
