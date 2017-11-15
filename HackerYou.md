@@ -25,6 +25,7 @@ largeAlbum[largeAlbum.length] = 7;
 let smallAlbum = [3, 8, 1, 12, 5];
 ```
 
+Oh oh...
 But to add to it now, you must create a new array:
 ```javascript
 let newAlbum = new array(smallAlbum.length + 1);
@@ -34,6 +35,8 @@ for ( index = 0; i < smallAlbum.length; index++) {
 }
 newAlbum[index+1] = 7;
 ```
+
+The point is, hopefully, you've predefined your array big enough for your needs.
 
 ___
 
@@ -55,14 +58,15 @@ for (index = indexToDelete; index < myAlbum.length ; index++ ) {
 }         
 ```
 
-Similarly, to add a new picture, say after picture 12, you need to copy all elements from picture 12 onwards over one
+Similarly, to add a new picture, say after picture 12, you need to copy all elements from picture 12 onwards over one. So much copying, sigh...
 
 This is because the data of an array resides contiguously in memory (side-by-side).
 ___
 
 
 ## What if we wanted to avoid all of this copying over? ...and avoid this memory restriction?
-The reason elements in an array need to be side-by-side, is because we don't have any other property or field to tell us where the next element is. If we pair the data with an additional property called 'next'...
+
+Let's pair our data with a second property... one that tells us where the next element is. Then they wouldn't need to be side-by-side like in an array... they could reside anywhere in memory! Sweet!
 
 ### Let's define our node
 
@@ -89,6 +93,9 @@ class LinkedList {
 ```
 
 ## Now what do we need to do to remove picture 12?
+
+Here's the code, but let me draw it out...
+
 ```javascript
   remove(valueToDelete) {
     let currentNode = this.head;
@@ -118,6 +125,8 @@ class LinkedList {
   }
 ```
 
+Inserting happens in a similar fashion too.
+
 ## Positives of linked lists:
 + Fast insertion / deletion
 + Linked lists let you insert elements at the beginning and end of the list is trivial. 
@@ -128,6 +137,7 @@ class LinkedList {
 - Slow lookup: need to iterate through the list to find a specific node
 - They do use more memory than arrays because of the pointers
 
+### Note
 We can also add a 'previous' field to allow traversal in both directions.
 
 For our next data structure, similar to linked lists, we will deal with nodes and pointers again to next nodes...
