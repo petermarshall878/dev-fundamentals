@@ -76,7 +76,7 @@ class Node {
 ### And our linked list
 
 ```javascript
-class SinglyList {
+class LinkedList {
   constructor(value) {
     this.head = new Node(value);
     this.length = 1;
