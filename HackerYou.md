@@ -135,15 +135,7 @@ ___
 
 ## Trees
 
-The example we will use to discuss trees is the DOM. What is the DOM?
-
-It’s an interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document.
-It's a great example because you have lots of one-to-many relationships.
-
 Let's look at how this data structure can be defined, and then similarly, we'll compare behaviour using our picture album compared to how we saw it behave with the array and linked list.
-
-![simple DOM example](https://snipcademy.com/code/img/tutorials/javascript/dom.svg "Simple DOM")
-
 
 ### Let's define our Node and Tree
 ```javascript
@@ -208,7 +200,14 @@ We will take a closer look into sorting and efficiency next time.
 + the tree naturally grows to hold an arbitrary, unlimited number of objects.
 
 
-### Back to the DOM...
+### The DOM
+
+What is the DOM?
+
+It’s an interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document.
+It's a great example because you have lots of one-to-many relationships.
+
+![simple DOM example](https://snipcademy.com/code/img/tutorials/javascript/dom.svg "Simple DOM")
 
 Because it is so important to quickly access, read, change your DOM tree, on top of being able to traverse the tree, you are also provided with hash tables (dictionaries) of elements by id, to quickly look up specific elements (or nodes) of your tree by index. Hence, why you can use calls like:
 
