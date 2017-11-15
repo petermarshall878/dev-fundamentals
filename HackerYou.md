@@ -54,19 +54,21 @@ The reason elements in an array need to be side-by-side, is because we don't hav
 ### Let's define our node
 
 ```javascript
-var Node = function Node(value) {
-  this.data = value;
-  this.next = null;
-};
+class Node {
+  constructor(value) {
+    this.data = value;
+    this.next = null;
+  }
+}
 ```
 ### And our linked list
 
 ```javascript
-var SinglyList = function SinglyList(value) {
-  var _this = this;
-  
-  this.head = new Node(value);
-  this.length = 0;
+class SinglyList {
+  constructor(value) {
+    this.head = new Node(value);
+    this.length = 0;
+  }
   
   ...
 }
@@ -74,7 +76,7 @@ var SinglyList = function SinglyList(value) {
 
 ## Now what do we need to do to remove a node / picture from position 4?
 ```javascript
-  this.remove = function (position) {
+  remove(position) {
     let currentNode = this.head;
     let count = 0;
     let beforeNodeToDelete = null;
@@ -129,37 +131,45 @@ It's a great example because you have lots of one-to-many relationships.
 
 ### Let's define our Node and Tree
 ```javascript
-var Node = function Node(value) {
-  this.data = value;
-  this.parent = null;
-  this.children = [];
-};
+class Node {
+  constructor(value) {
+    this.data = value;
+    this.parent = null;
+    this.children = [];
+  }
+}
 ```
 
 ```javascript
-var Tree = function Tree(value) {
-  var _this = this;
-
-  this.root = new Node(value);
-  this.length = 0;
-};
+class Tree {
+  constructor(value) {
+    this.root = new Node(value);
+    this.length = 1;
+  }
+  
+  ...
+}
 ```
 
 ## What does a tree traversal look like?
 
 ```javascript
-  this.traverse = function (callback) {
-    callback(_this);
+  traverse(callback) {
+    callback(this);
 
-    if (!_this.children) {
+    if (this.children.length < 1) {
       return;
     }
-    for (var i = 0; i < _this.children.length; i++) {
-      var child = _this.children[i];
+    children.forEach(() => {
       child.traverse(callback);
-    }
-  };
-};
+    });
+  }
+
+```
+
+A simple example to traverse the entire tree and print to screen all values:
+```javascript
+rootNode.traverse((node) => console.log(node.data));
 ```
 
 Your callback can be anything here... a function to return all image type children, a counter function to find the number of images, a function that manipulates certain nodes, etc...
